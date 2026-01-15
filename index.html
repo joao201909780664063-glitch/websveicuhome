@@ -1,1 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Estação das Flores</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #8bc34a;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #558b2f;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .flower-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .flower-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .flower-card .content {
+            padding: 20px;
+        }
+
+        .flower-card h3 {
+            margin-top: 0;
+            color: #7cb342;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Estação das Flores</h1>
+        <p>Beleza, perfume e vida em cada flor</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Nossas Flores</h2>
+
+        <div class="gallery">
+
+            <div class="flower-card">
+                <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Rosas">
+                <div class="content">
+                    <h3>Rosas</h3>
+                    <p>
+                        As rosas são símbolos de amor, romance e elegância. 
+                        Disponíveis em várias cores, cada uma representa um sentimento diferente, 
+                        sendo ideais para presentear em momentos especiais.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flower-card">
+                <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0" alt="Orquídeas">
+                <div class="content">
+                    <h3>Orquídeas</h3>
+                    <p>
+                        As orquídeas representam sofisticação e delicadeza. 
+                        São flores exóticas, duráveis e muito apreciadas pela sua beleza única 
+                        e variedade de formas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flower-card">
+                <img src="https://images.unsplash.com/photo-1508747703725-719777637510" alt="Girassóis">
+                <div class="content">
+                    <h3>Girassóis</h3>
+                    <p>
+                        O girassol é símbolo de alegria, energia e positividade. 
+                        Seu amarelo vibrante ilumina qualquer ambiente e transmite 
+                        felicidade e vitalidade.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flower-card">
+                <img src="https://images.unsplash.com/photo-1524594154908-edd4053e00b3" alt="Lírios">
+                <div class="content">
+                    <h3>Lírios</h3>
+                    <p>
+                        Os lírios são flores elegantes e perfumadas, muito usadas 
+                        em decorações e arranjos sofisticados. 
+                        Representam pureza, paz e renovação.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flower-card">
+                <img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551" alt="Tulipas">
+                <div class="content">
+                    <h3>Tulipas</h3>
+                    <p>
+                        As tulipas são flores delicadas e modernas, muito populares 
+                        na primavera. Elas simbolizam amor verdadeiro e charme.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flower-card">
+                <img src="https://images.unsplash.com/photo-1495231916356-a86217efff12" alt="Margaridas">
+                <div class="content">
+                    <h3>Margaridas</h3>
+                    <p>
+                        As margaridas representam simplicidade, pureza e alegria. 
+                        São flores leves e encantadoras, perfeitas para ambientes 
+                        descontraídos e naturais.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 - Estação das Flores</p>
+        <p>Todos os direitos reservados</p>
+    </footer>
+
+</body>
+</html>
 
